@@ -1,21 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Login</div>
+                    <div class="panel-body">
+
+                        {!! Form::open(['role' => 'form','class'=>'form-horizontal','method' =>'POST','route'=>'login']) !!}
+                        {{--<form class="form-horizontal" method="POST" action="{{ route('login') }}">--}}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
+                            {!! Form::label('email', 'E-Mail Address', ['class' => 'col-md-4 control-label']) !!}
+                            {{--<label for="email" class="col-md-4 control-label">E-Mail Address</label>--}}
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
+                                {!! Form::input('email','email',old('email'),['id'=>'email','class'=>'form-control','autofocus'=>'true']) !!}
+                                {{--<input id="email" type="email" class="form-control" name="email"--}}
+                                {{--value="{{ old('email') }}" required autofocus>--}}
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -25,11 +28,12 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            {!! Form::label('password', 'Password', ['class' => 'col-md-4 control-label']) !!}
+                            {{--<label for="password" class="col-md-4 control-label">Password</label>--}}
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
+                                {!! Form::input('password','password',null,['id'=>'password','class'=>'form-control']) !!}
+                                {{--<input id="password" type="password" class="form-control" name="password" required>--}}
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -42,7 +46,9 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        {!! Form::checkbox('remember', old('remember')) !!}
+                                        {{--<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+                                        Remember Me
                                     </label>
                                 </div>
                             </div>
@@ -59,10 +65,11 @@
                                 </a>
                             </div>
                         </div>
-                    </form>
+                        {{--</form>--}}
+                        {!! Form::close() !!}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

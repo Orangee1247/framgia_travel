@@ -17,9 +17,6 @@ class CreateModifyTable extends Migration
             $table->string('phone')->default(null)->change();
             $table->string('address')->default(null)->change();
             $table->string('self_describe')->default(null)->change();
-            $table->string('gender')->nullable()->default(null)->change();
-            $table->string('name')->nullable()->default(null)->change();
-            $table->date('date_of_birth')->nullable()->default(null)->change();
         });
 
         Schema::table('user_gallerys', function (Blueprint $table) {
@@ -28,9 +25,6 @@ class CreateModifyTable extends Migration
 
         Schema::table('provinces', function (Blueprint $table) {
             $table->string('description')->default(null)->change();
-            $table->string('img_name')->nullable()->default(null);
-            $table->string('img_url')->nullable()->default(null);
-
         });
 
         Schema::table('services', function (Blueprint $table) {
@@ -67,9 +61,6 @@ class CreateModifyTable extends Migration
             $table->string('phone')->default(false)->change();
             $table->string('address')->default(false)->change();
             $table->string('self_describe')->default(false)->change();
-            $table->string('gender')->default(false)->change();
-            $table->string('name')->default(false)->change();
-            $table->date('date_of_birth')->default(false)->change();
         });
 
         Schema::table('user_gallerys', function (Blueprint $table) {

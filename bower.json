@@ -20,6 +20,11 @@
     "bootstrap": "^3.3.7",
     "jquery-colorbox": "colorbox#^1.6.4",
     "FourBoxes": "https://github.com/codrops/FourBoxes.git",
-    "ResponsiveSlides": "https://github.com/viljamis/ResponsiveSlides.js.git"
+    "ResponsiveSlides": "https://github.com/viljamis/ResponsiveSlides.js.git",
+    "AdminLTE": "adminlte#^2.3.11",
+    "Ionicons": "ionicons#^2.0.1",
+    "bootstrap-datepicker": "^1.7.1",
+    "Railway": "https://github.com/williamcanin/fonts-raleway.git",
+    "Open-sans": "https://github.com/FontFaceKit/open-sans.git"
   }
 }
