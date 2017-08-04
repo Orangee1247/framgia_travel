@@ -1,4 +1,14 @@
 @extends('layouts.master')
+
+@section('slide')
+    @include('includes.slide')
+@stop
+
+@section('header')
+    @include('includes.header')
+    @include('includes.searchBar')
+@stop
+
 @section('content')
     <!-- about-section -->
     <div class="w3-agileits-about-section" id="w3-agile-about">
@@ -526,4 +536,48 @@
         </div>
     </div>
     <!-- //contact-section -->
+@stop
+
+@section('script')
+    <!-- //js required for banner slider -->
+    <script>
+        new BoxesFx(document.getElementById('boxgallery'));
+    </script>
+    <!-- //slider -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#logout-1').on('click', function () {
+                $('#logout-form').submit();
+            });
+            $().UItoTop({easingType: 'easeOutQuart'});
+
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    {{ HTML::script('js/move-top.js', ['type' => 'text/javascript']) }}
+    {{ HTML::script('js/easing.js', ['type' => 'text/javascript']) }}
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- //here ends scrolling icon -->
+    <script type="text/javascript">
+        $(function () {
+            var stickyRibbonTop = $('#stickyribbon').offset().top;
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > stickyRibbonTop) {
+                    $('#stickyribbon').css({position: 'fixed', top: '0px'});
+                } else {
+                    $('#stickyribbon').css({position: 'static', top: '0px'});
+                }
+            });
+        });
+    </script>
 @stop

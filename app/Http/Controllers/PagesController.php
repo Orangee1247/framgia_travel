@@ -12,4 +12,9 @@ class PagesController extends Controller
 
         return view('pages.user.profile', compact('user'));
     }
+
+    public function city()
+    {
+        return view('pages.city');
+    }
 }
