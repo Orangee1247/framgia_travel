@@ -2258,3 +2258,9 @@ footer {
 #logout-form{
     display: none;
 }
+
+.hovereffect .img-responsive{
+    width: 350px;
+    height: 262.5px;
+}
+

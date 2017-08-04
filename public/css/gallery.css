@@ -441,49 +441,57 @@
     word-wrap: break-word;
 }
 
-#stickyribbon{
+#stickyribbon {
     background-color: #0f0f0f;
     height: 60px;
 }
 
-.navbar-default{
+.navbar-default {
     margin-top: -10px;
 }
 
-.nav-mini-wrapper{
+.nav-mini-wrapper {
     margin-top: -10px;
 }
 
-body{
-    background-color:whitesmoke ;
+body {
+    background-color: whitesmoke;
 }
 
-.container #content{
-    margin: 50px 0px 20px 130px ;
+.container #content {
+    margin: 50px 0px 20px 130px;
 }
 
-.form-horizontal{
+.form-horizontal {
     margin-left: 70px;
 }
 
-.col-md-3{
+.col-md-3 {
     font-size: 15px;
     color: #0f0f0f;
 }
 
-.content-header{
+.content-header {
     margin-top: 50px;
 }
 
-.content-header h1{
+.content-header h1 {
     width: 262.5px;
     text-align: center;
 }
 
-.profile-user-img{
+.content{
+    font-size: 12px;
+}
+
+.profile-user-img {
     margin: auto;
 }
 
-.box-body{
+.box-body {
+    margin-top: 30px;
+}
+
+footer{
     margin-top: 30px;
 }

@@ -14,7 +14,7 @@
                 </button>
                 <div class="w3-logo">
                     <img src="{{ asset('images/framgia_logo.png') }}"/>
-                    <h1><a href="http://localhost:8000/home">Framgia Trip</a></h1>
+                    <h1><a href={{route('home')}}>Framgia Trip</a></h1>
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                     <li><a class="scroll" href="#w3-agile-about">About</a></li>
                     <li><a class="scroll" href="#agileits-specials">Specials</a></li>
                     <li><a class="scroll" href="#wthree-gallery">Gallery</a></li>
-                    <li><a href="/city">Citys</a></li>
+                    <li><a href="/provinces">Provinces</a></li>
                     <li><a class="scroll" href="#w3-contact">Contact</a></li>
                     <!-- Authentication Links -->
                 </ul>
@@ -56,7 +56,7 @@
 
                     <ul class="dropdown-menu" role="menu">
                         @if(Auth::user() -> level == 1)
-                            <li><a href="http://localhost:8000/admin"><strong>ADMIN</strong></a></li>
+                            <li><a href="{{ route('admin') }}"><strong>ADMIN</strong></a></li>
                         @endif
                         <li><a href="{{ route('user.profile', [Auth::user()->id]) }}">{{ trans('label.profile') }}</a>
                         </li>
@@ -64,7 +64,7 @@
                             <a href="javascript:void(0)" id="logout-1">
                                 {{trans('label.logout')}}
                             </a>
-                            {!! Form::open(['role'=>'form','route'=> 'logout','method'=>'POST','id'=>'logout-form']) !!}
+                            {!! Form::open(['role'=>'form', 'route'=> 'logout', 'method'=>'POST', 'id'=>'logout-form']) !!}
                             {{ csrf_field() }}
                             {!! Form::close() !!}
                         </li>
@@ -77,3 +77,4 @@
     <!-- //navigation -->
     @yield('search')
 </header>
+

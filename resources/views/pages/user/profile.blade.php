@@ -3,22 +3,16 @@
 @section('style')
     {{ HTML::style('css/gallery.css', ['rel' => 'stylesheet']) }}
     {{ HTML::style('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}
-@stop
+@endsection
 
 @section('header')
     @include('includes.header')
-@stop
+@endsection
 
 @section('content')
     <div class="container" id="content">
-        <section class="content-header">
-            <h1>
-                User Profile
-            </h1>
-        </section>
         <!-- Main content -->
-        <section class="content" style="color: white">
-
+        <section class="content">
             <div class="row">
                 <div class="col-md-3">
 
@@ -276,68 +270,12 @@
             <!-- /.row -->
         </section>
     </div>
-@stop
+@endsection
 
 @section('script')
-
-    {{--{{ HTML::script('bower_components/AdminLTE/bootstrap/js/bootstrap.min.js') }}--}}
-    {{ HTML::script('bower_components/AdminLTE/plugins/sparkline/jquery.sparkline.min.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/knob/jquery.knob.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') }}
-    {{ HTML::script('bower_components/AdminLTE/plugins/fastclick/fastclick.js') }}
     {{ HTML::script('bower_components/AdminLTE/dist/js/app.min.js') }}
-    {{ HTML::script('bower_components/AdminLTE/dist/js/demo.js') }}
     {{ HTML::script('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}
+    {{ HTML::script('bower_components/AdminLTE/dist/js/app.min.js') }}
+    {{ HTML::script('js/userPF.js', ['type' => 'text/javascript']) }}
+@endsection
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#logout-1').on('click', function () {
-                $('#logout-form').submit();
-            });
-
-            $('#pickyDate').datepicker({
-                format: "yyyy/mm/dd"
-            });
-        });
-    </script>
-    <script>
-        popup = {
-            init: function () {
-                $('figure').click(function () {
-                    popup.open($(this));
-                });
-
-                $(document).on('click', '.popup img', function () {
-                    return false;
-                }).on('click', '.popup', function () {
-                    popup.close();
-                })
-            },
-            open: function ($figure) {
-                $('.gallery').addClass('pop');
-                $popup = $('<div class="popup" />').appendTo($('body'));
-                $fig = $figure.clone().appendTo($('.popup'));
-                $bg = $('<div class="bg" />').appendTo($('.popup'));
-                $close = $('<div class="close"><svg><use xlink:href="#close"></use></svg></div>').appendTo($fig);
-                $shadow = $('<div class="shadow" />').appendTo($fig);
-                src = $('img', $fig).attr('src');
-                $shadow.css({backgroundImage: 'url(' + src + ')'});
-                $bg.css({backgroundImage: 'url(' + src + ')'});
-                setTimeout(function () {
-                    $('.popup').addClass('pop');
-                }, 10);
-            },
-            close: function () {
-                $('.gallery, .popup').removeClass('pop');
-                setTimeout(function () {
-                    $('.popup').remove()
-                }, 100);
-            }
-        }
-        popup.init()
-    </script>
-@stop

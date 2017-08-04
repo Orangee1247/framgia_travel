@@ -4,3 +4,4 @@
     {!! Form::input('submit', 'search_submit', "Rechercher", ['id'=>'search_submit']) !!}
     {!! Form::close() !!}
 </div>
+

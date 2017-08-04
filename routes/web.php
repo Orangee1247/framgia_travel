@@ -11,16 +11,15 @@
 |
 */
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get( '/home', 'HomeController@index' )->name( 'home' );
 
-Route::get('/', 'HomeController@index');
+Route::get( '/', 'HomeController@index' );
 Auth::routes();
 
-Route::get('/user/profile/{id}', 'PagesController@showProfile')->name('user.profile');
-Route::post('/user/profile/{id}', ['as' => 'user.update', 'uses' => 'UserController@updateProfile']);
+Route::get( '/user/profile/{id}', 'PagesController@showProfile' )->name('user.profile');
+Route::post( '/user/profile/{id}', [ 'as' => 'user.update', 'uses' => 'UserController@updateProfile' ] );
 
-Route::get('/city','PagesController@city');
-Route::get('/admin', function () {
-    return view('admin.admin_template');
-});
+Route::get( '/provinces', 'PagesController@provinces' );
+Route::get( '/provinces/{name}', [ 'as' => 'provincePF', 'uses' => 'PagesController@provincePF' ] );
+Route::get('/admin', 'PagesController@showAdmin')->name('admin');
 Route::get('/admin/user_list','AdminController@userList');
