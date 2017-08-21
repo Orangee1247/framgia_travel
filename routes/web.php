@@ -8,6 +8,14 @@ Auth::routes();
 Route::group(['prefix' => 'provinces'], function () {
     Route::get('/', ['as' => 'provinceList', 'uses' => 'PagesController@provinces']);
     Route::get('/{name}', ['as' => 'provincePF', 'uses' => 'PagesController@provincePF']);
+    Route::get('{name}/Hotels', ['as' => 'hotels', 'uses' => 'PagesController@hotels']);
+    Route::get('{name}/Restaurants', ['as' => 'restaurants', 'uses' => 'PagesController@restaurants']);
+    Route::get('{name}/Activities', ['as' => 'activities', 'uses' => 'PagesController@activities']);
+});
+
+Route::group(['prefix' => 'services'], function () {
+    Route::get('/hotels', ['as' => 'hotelList', 'uses' => 'PagesController@hotelsList']);
+    Route::post('/hotels', ['as' => 'hotelList', 'uses' => 'PagesController@hotels']);
 });
 
 Route::group(['prefix' => 'services'], function () {

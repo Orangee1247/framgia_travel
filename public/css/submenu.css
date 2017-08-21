@@ -11,28 +11,28 @@ a {
     text-decoration: none;
 }
 
-#btn1 {
-    position: fixed;
+.sub-menu{
+    width: 100px;
+    height: 400px;
     top: 100px;
+    position: fixed;
     z-index: 1000;
 }
 
+#btn1 {
+    top: 100px;
+}
+
 #btn2 {
-    position: fixed;
-    z-index: 1000;
     top: 200px;
 }
 
 #btn3 {
-    position: fixed;
     top: 300px;
-    z-index: 1000;
 }
 
 #btn4 {
-    position: fixed;
     top: 400px;
-    z-index: 1000;
 }
 
 div.button1 {

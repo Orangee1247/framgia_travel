@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Province;
+use App\Models\Province;
+use App\Models\ProvinceGallery;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -33,7 +34,9 @@ class PagesController extends Controller
     {
         $provinces = Province::where('name', '=', $request->name)->first();
 
-        return view('pages.province.profile', compact('provinces'));
+        $images = ProvinceGallery::where('province_id', '=', $provinces->id)->get();
+
+        return view('pages.province.profile', compact('provinces','images'));
     }
 
     public function showAdmin()

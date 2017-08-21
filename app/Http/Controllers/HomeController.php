@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Province;
+use App\Models\Province;
 
 class HomeController extends Controller
 {

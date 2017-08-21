@@ -28,7 +28,5 @@
     "Open-sans": "https://github.com/FontFaceKit/open-sans.git",
     "Html5shiv": "https://github.com/aFarkas/html5shiv.git",
     "Respond": "https://github.com/scottjehl/Respond.git",
-    "ajax-form": "^2.1.4",
-    "jquery-form": "^4.2.2"
   }
 }

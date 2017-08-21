@@ -62,3 +62,19 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 700) {
+        $('.sub-menu').fadeIn();
+        $('#wrap').fadeIn();
+    } else {
+        $('.sub-menu').fadeOut();
+        $('#wrap').fadeOut();
+
+    }
+});
+
+// $('myselector').hover(function(){
+//     $(this).trigger('click');
+// });
