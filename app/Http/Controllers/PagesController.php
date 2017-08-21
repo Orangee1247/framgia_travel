@@ -48,8 +48,10 @@ class PagesController extends Controller
         return view('pages.action.request.request', compact('provinces'));
     }
 
-    public function requestPost()
+    public function requestPost(Request $request)
     {
-        return view('pages.action.request.request');
+        dd($request);
+
+        return redirect(route('requestGet'));
     }
 }

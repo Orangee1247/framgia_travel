@@ -70,9 +70,9 @@
                 <div class="form-group">
                     <label>Visiting provinces</label> &nbsp;
                     <i class="fa fa-location-arrow"></i>
-                    <select name="provinces" class="form-control select2" multiple="multiple">
+                    <select name="proChoice" class="form-control select2" multiple="multiple">
                         @foreach($provinces as $province)
-                            <option>{{ $province->name }}</option>
+                            <option value="{{ $province->id }}">{{ $province->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -81,7 +81,7 @@
                         <div class="form-group date">
                             <label>Date</label> &nbsp;
                             <i class="fa fa-calendar"></i>
-                            <input type="text" class="form-control pull-right" id="datepicker">
+                            <input name="dateStart" type="text" class="form-control pull-right" id="datepicker">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -90,7 +90,7 @@
                                 <label>Time</label> &nbsp;
                                 <i class="fa fa-clock-o"></i>
                                 <div class="form-group">
-                                    <input type="text" class="form-control timepicker">
+                                    <input name="timeStart" type="text" class="form-control timepicker">
                                 </div>
                             </div>
                         </div>
@@ -129,16 +129,14 @@
                 $("#days").val(parseInt($("#days").val(), 10) + 1);
             });
             $("#daydown").on("click", function () {
-                if ($("#days").val() <= 0);
-                else
+                if ($("#days").val() > 0)
                     $("#days").val(parseInt($("#days").val(), 10) - 1);
             });
             $("#nightup").on("click", function () {
                 $("#nights").val(parseInt($("#nights").val(), 10) + 1);
             });
             $("#nightdown").on("click", function () {
-                if ($("#nights").val() <= 0);
-                else
+                if ($("#nights").val() > 0)
                     $("#nights").val(parseInt($("#nights").val(), 10) - 1);
             });
             $(".select2").select2();
