@@ -1,33 +1,124 @@
-@import url("https://fonts.googleapis.com/css?family=Varela+Round");
 
-.button {
-    margin: 60px 0px 0px 0px;
-    width: 240px;
-    height: 60px;
-    font-size: 18px;
-    letter-spacing: 0.1em;
-    color: #e8e8e8;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    background: linear-gradient(45deg, #d350db, teal, #d350db);
-    background-size: 400% 400%;
-    box-shadow: 1vw 1vw 0 lightcoral;
+.navigation a {
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
+    left: 50%;
+    color: white;
+    transform: translate3d(-50%, -50%, 0);
+    display: inline-block;
+    border: 3px solid transparent;
+    position: relative;
+    letter-spacing: 0.07em;
+    text-decoration: none;
 }
 
-.button:hover {
-    animation: gradient 10s ease infinite;
-    font-size: 25px;
-    box-shadow: 0.2vw 0.2vw 0 lightcoral;
+.navigation a .text {
+    font-family: proxima-nova;
+    transform: translate3d(0, 0.7em, 0);
+    transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
 }
 
-@keyframes gradient {
-    50% {
-        background-position: 100% 0;
-    }
+.navigation a:after {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: calc(0.7em * 1.2);
+    right: calc(0.7em * 1.2);
+    height: 3px;
+    background: linear-gradient(45deg, #d350db, teal, #d350db);
+    z-index: -1;
+    transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+    transform-origin: left;
+}
+
+.navigation .line {
+    position: absolute;
+    background: linear-gradient(45deg, #d350db, teal, #d350db);
+}
+
+.navigation .line.-right, .line.-left {
+    width: 3px;
+    bottom: -3px;
+    top: -3px;
+    transform: scale3d(1, 0, 1);
+}
+
+.navigation .line.-top, .line.-bottom {
+    height: 3px;
+    left: -3px;
+    right: -3px;
+    transform: scale3d(0, 1, 1);
+}
+
+.navigation .line.-right {
+    right: -3px;
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+    transform-origin: top;
+}
+
+.navigation .line.-top {
+    top: -3px;
+    transition: transform 0.08s linear 0.43s;
+    transform-origin: left;
+}
+
+.navigation .line.-left {
+    left: -3px;
+    transition: transform 0.08s linear 0.51s;
+    transform-origin: bottom;
+}
+
+.navigation .line.-bottom {
+    bottom: -3px;
+    transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+    transform-origin: right;
+}
+
+.navigation a:hover .text,
+a:active .text {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+
+.navigation a:hover:after,
+a:active:after {
+    transform: scale3d(0, 1, 1);
+    right: -3px;
+    left: -3px;
+    transform-origin: right;
+    transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+}
+
+.navigation a:hover .line,
+a:active .line {
+    transform: scale3d(1, 1, 1);
+}
+
+.navigation a:hover .line.-right,
+a:active .line.-right {
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+    transform-origin: bottom;
+}
+
+.navigation a:hover .line.-top,
+a:active .line.-top {
+    transition: transform 0.08s linear 0.4s;
+    transform-origin: right;
+}
+
+.navigation a:hover .line.-left,
+a:active .line.-left {
+    transition: transform 0.08s linear 0.48s;
+    transform-origin: top;
+}
+
+.navigation a:hover .line.-bottom,
+a:active .line.-bottom {
+    transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+    transform-origin: left;
+}
+
+.navigation a:hover {
+    color: #34f24d;
 }
 
 #stickyribbon {
@@ -71,55 +162,86 @@ body {
 .photo-wrapper {
     padding-top: 15px;
     width: 100%;
-    height: 500px;
 }
 
 .photo {
-    width: 70%;
-    height: 800px;
-    float: left;
-}
-
-.demo {
-    width: 450px;
-}
-
-.demo ul {
-    list-style: none outside none;
-    padding-left: 0;
-    margin-bottom: 0;
-}
-
-.demo ul li {
-    display: block;
-    float: left;
-    margin-right: 6px;
-    cursor: pointer;
-}
-
-.demo img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-}
-
-.nav-link {
-    float: right;
-    width: 25%;
-}
-
-.nav-link ul {
-    list-style-type: none;
-}
-
-.nav-link li a {
-    text-decoration: none;
-    color: white;
-    display: block;
-    text-align: center;
-    border-bottom: none;
+    width: 100%;
+    height: 100%;
 }
 
 #wrapper {
     height: auto;
+}
+
+.overview {
+    margin-top: 50px;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.navigation {
+    width: 100%;
+    height: 70px;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.navigation ul li {
+    display: block;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#navbar {
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+.bio {
+    width: 90%;
+    margin: auto;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.trending {
+    margin: auto;
+    margin-top: 70px;
+    width: 90%;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.trending h4{
+    margin-left: 30px;
+    opacity: 0.9;
+}
+
+#hotel {
+    width: 100%;
+    min-height: 200px;
+    border: solid white 1px;
+    margin-bottom: 50px;
+}
+
+#restaurant {
+    width: 48%;
+    float: left;
+    min-height: 300px;
+    border: solid 1px white;
+}
+
+#activity {
+    width: 48%;
+    float: right;
+    min-height: 300px;
+    border: solid 1px white;
 }

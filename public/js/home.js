@@ -40,9 +40,6 @@ $(document).ready(function () {
         return false;
     });
 
-    $('#logout-1').on('click', function () {
-        $('#logout-form').submit();
-    });
     $().UItoTop({easingType: 'easeOutQuart'});
 
     $('.scroll').click(function (event) {

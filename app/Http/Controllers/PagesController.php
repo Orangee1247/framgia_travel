@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Plan;
-use App\Model\PlanLocation;
-use App\Model\Province;
-use App\Model\ProvinceGallery;
+use App\Models\Province;
+use App\Models\ProvinceGallery;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,11 +17,18 @@ class PagesController extends Controller
         return view('pages.province.list', compact('provinces'));
     }
 
-    public function hotelsList()
-    {
-        $provinces = Province::paginate(9);
+//    public function hotelsList()
+//    {
+//        $provinces = Province::paginate(9);
+//
+//        return view('pages.service.hotels.list', compact('provinces'));
+//    }
 
-        return view('pages.service.hotels.list', compact('provinces'));
+    public function hotelsList(Request $request)
+    {
+        $hotels = Service::where('category_id','=',1);
+
+        return view('pages.service.hotels.list', compact('hotels'));
     }
 
     public function hotels(Request $request)

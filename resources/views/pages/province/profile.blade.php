@@ -20,7 +20,8 @@
         <div class="container" id="content">
             <div>
                 <div class="container" id="tab-content">
-                    <h1 class="heading">{{$provinces->name}}</h1>
+                    <h1 class="heading">About {{$provinces->name}}</h1>
+
                     <div class="photo-wrapper">
                         <div class="photo">
                             <div id='ninja-slider'>
@@ -46,34 +47,78 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                        </div>
-
-
-                        <div class="nav-link">
-                            <ul class="service-link">
-                                <li>
-                                    <button class="button">Hotels ({{$provinces->hotel}})
-                                        <a href="{{route('hotels', $provinces->name)}}"></a>
-                                    </button>
-                                </li>
-                                <li>
-                                    <div class="button">Restaurants ({{$provinces->restaurant}})
-                                        <a href="{{route('restaurants', $provinces->name)}}"></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="button">Things to do ({{$provinces->amusement}})
-                                        <a href="{{route('activities', $provinces->name)}}"></a>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </div>
+
+                    <div class="overview">
+                        <div class="navigation">
+                            <div id="navbar">
+                                <ul>
+                                    <li>
+                                        <a>
+                                            <span class="text">Overview</span>
+                                            <span class="line -right"></span>
+                                            <span class="line -top"></span>
+                                            <span class="line -left"></span>
+                                            <span class="line -bottom"></span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('hotels', $provinces->name)}}">
+                                            <span class="text">Places to stay</span>
+                                            <span class="line -right"></span>
+                                            <span class="line -top"></span>
+                                            <span class="line -left"></span>
+                                            <span class="line -bottom"></span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('restaurants', $provinces->name)}}">
+                                            <span class="text">Where to eat</span>
+                                            <span class="line -right"></span>
+                                            <span class="line -top"></span>
+                                            <span class="line -left"></span>
+                                            <span class="line -bottom"></span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('activities', $provinces->name)}}">
+                                            <span class="text">Things to do</span>
+                                            <span class="line -right"></span>
+                                            <span class="line -top"></span>
+                                            <span class="line -left"></span>
+                                            <span class="line -bottom"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bio">
+                            <p>{{$provinces->description}}</p>
+                        </div>
+
+                        <div class="trending">
+                            <h4><strong>Travellers are talking about these hotels</strong></h4>
+
+                            <div id="hotel">
+                            </div>
+
+                            <div id="restaurant">
+                                <h4><strong>Top-rated {{$provinces->name}} Restaurants</strong></h4>
+                            </div>
+
+                            <div id="activity">
+                                <h4><strong>Top-rated {{$provinces->name}} Things to Do</strong></h4>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-
-
             </div>
         </div>
     </div>

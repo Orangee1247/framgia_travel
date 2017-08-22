@@ -19,6 +19,13 @@
 {{ HTML::script('bower_components/FourBoxes/js/modernizr.custom.js') }}
 {{ HTML::script('bower_components/FourBoxes/js/classie.js') }}
 {{ HTML::script('bower_components/FourBoxes/js/boxesFx.js') }}
+<script>
+    $(document).ready(function () {
+        $('#logout-1').on('click', function () {
+            $('#logout-form').submit();
+        });
+    });
+</script>
 
 @yield('script')
 
