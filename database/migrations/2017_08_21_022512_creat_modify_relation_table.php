@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreatModifyRelationTable extends Migration
 {
@@ -26,7 +25,7 @@ class CreatModifyRelationTable extends Migration
     public function down()
     {
         Schema::table('province_gallery', function ($table) {
-            $table->dropForeign(['province_name']);
+            $table->dropForeign(['province_id']);
         });
     }
 }

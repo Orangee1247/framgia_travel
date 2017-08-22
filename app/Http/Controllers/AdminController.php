@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\Province;
-use App\Models\User;
+use App\Model\Province;
+use App\Model\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Province;
-use App\Models\ProvinceGallery;
+use App\Model\Plan;
+use App\Model\PlanLocation;
+use App\Model\Province;
+use App\Model\ProvinceGallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -36,7 +39,7 @@ class PagesController extends Controller
 
         $images = ProvinceGallery::where('province_id', '=', $provinces->id)->get();
 
-        return view('pages.province.profile', compact('provinces','images'));
+        return view('pages.province.profile', compact('provinces', 'images'));
     }
 
     public function showAdmin()
@@ -53,7 +56,17 @@ class PagesController extends Controller
 
     public function requestPost(Request $request)
     {
-        dd($request);
+        $choices = $request->proChoice;
+        $plan = new Plan();
+        $plan->fill($request->all());
+        $plan->user_id = Auth::user()->id;
+        $plan->save();
+        foreach ($choices as $choice) {
+            $pl = new PlanLocation();
+            $pl->province_id = $choice;
+            $pl->plan_id = $plan->id;
+            $pl->save();
+        }
 
         return redirect(route('requestGet'));
     }

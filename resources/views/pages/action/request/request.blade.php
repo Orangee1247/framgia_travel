@@ -26,51 +26,13 @@
                 <div class="form-group">
                     <label>Tour Name</label> &nbsp;
                     <i class="fa fa-commenting-o"></i>
-                    <input class="form-control" name="name" required autocomplete="off"
+                    <input class="form-control" name="title" required autocomplete="off"
                            placeholder="Please Enter Tour Name"/>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Budget</label> &nbsp;
-                            <i class="fa fa-money"></i>
-                            <input type="number" min="0" class="form-control" name="budget" autocomplete="off"
-                                   placeholder="$$$"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="input-group spinner">
-                            <label>How many Days</label> &nbsp;
-                            <i class="fa fa-sun-o"></i>
-                            <input id="days" type="text" class="form-control" name="days" autocomplete="off"
-                                   value="0"/>
-                            <div class="input-group-btn-vertical">
-                                <button class="btn btn-default" type="button" id="dayup"><i class="fa fa-caret-up"></i>
-                                </button>
-                                <button class="btn btn-default" type="button" id="daydown"><i
-                                            class="fa fa-caret-down"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="input-group spinner">
-                            <label>How many Nights</label> &nbsp;
-                            <i class="fa fa-moon-o"></i>
-                            <input id="nights" type="text" class="form-control" name="nights" autocomplete="off"
-                                   value="0"/>
-                            <div class="input-group-btn-vertical">
-                                <button class="btn btn-default" type="button" id="nightup"><i
-                                            class="fa fa-caret-up"></i></button>
-                                <button class="btn btn-default" type="button" id="nightdown"><i
-                                            class="fa fa-caret-down"></i></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="form-group">
                     <label>Visiting provinces</label> &nbsp;
                     <i class="fa fa-location-arrow"></i>
-                    <select name="proChoice" class="form-control select2" multiple="multiple">
+                    <select name="proChoice[]" class="form-control select2" multiple>
                         @foreach($provinces as $province)
                             <option value="{{ $province->id }}">{{ $province->name }}</option>
                         @endforeach
@@ -90,7 +52,7 @@
                                 <label>Time</label> &nbsp;
                                 <i class="fa fa-clock-o"></i>
                                 <div class="form-group">
-                                    <input name="timeStart" type="text" class="form-control timepicker">
+                                    <input name="time" type="text" class="form-control timepicker">
                                 </div>
                             </div>
                         </div>
@@ -131,13 +93,6 @@
             $("#daydown").on("click", function () {
                 if ($("#days").val() > 0)
                     $("#days").val(parseInt($("#days").val(), 10) - 1);
-            });
-            $("#nightup").on("click", function () {
-                $("#nights").val(parseInt($("#nights").val(), 10) + 1);
-            });
-            $("#nightdown").on("click", function () {
-                if ($("#nights").val() > 0)
-                    $("#nights").val(parseInt($("#nights").val(), 10) - 1);
             });
             $(".select2").select2();
             $(".timepicker").timepicker({
