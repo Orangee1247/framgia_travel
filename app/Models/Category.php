@@ -10,4 +10,14 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    function service()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    function requested_service()
+    {
+        return $this->hasMany(RequestedService::class);
+    }
 }

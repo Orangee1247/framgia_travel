@@ -15,4 +15,14 @@ class PlanDetail extends Model
         'end_at',
         'detail',
     ];
+
+    function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
+
+    function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

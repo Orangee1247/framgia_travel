@@ -11,4 +11,9 @@ class ProvinceGallery extends Model
         'province_id',
         'img_url',
     ];
+
+    function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 }

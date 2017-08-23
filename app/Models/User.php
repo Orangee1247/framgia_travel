@@ -36,4 +36,30 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    function plan()
+    {
+        return $this->hasMany(Plan::class);
+    }
+
+    function user_gallery()
+    {
+        return $this->hasMany(UserGallery::class);
+    }
+
+    function follow()
+    {
+        return $this->hasMany(Follow::class);
+    }
+
+    function requested_service()
+    {
+        return $this->hasMany(RequestedService::class);
+    }
 }
+

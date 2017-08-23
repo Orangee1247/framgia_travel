@@ -13,4 +13,14 @@ class Comment extends Model
         'content',
         'rate_point',
     ];
+
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

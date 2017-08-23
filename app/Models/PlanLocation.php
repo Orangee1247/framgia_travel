@@ -11,4 +11,14 @@ class PlanLocation extends Model
         'province_id',
         'plan_id',
     ];
+
+    function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
+
+    function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 }

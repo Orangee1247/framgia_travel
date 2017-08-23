@@ -28,6 +28,16 @@
     color: #D9230F;
 }
 
+body {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.gallery h3{
+    color: black;
+}
+
+
 .search-query:focus + button {
     z-index: 3;
 }
@@ -35,5 +45,4 @@
 .row {
     width: 800px;
     margin: auto;
-    margin-top: 40px;
 }

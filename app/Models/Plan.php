@@ -13,4 +13,19 @@ class Plan extends Model
         'description',
         'time',
     ];
+
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    function plan_detail()
+    {
+        return $this->hasMany(PlanDetail::class);
+    }
+
+    function plan_location()
+    {
+        return $this->hasMany(PlanLocation::class);
+    }
 }

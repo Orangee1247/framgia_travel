@@ -11,4 +11,9 @@ class UserGallery extends Model
         'user_id',
         'img_url',
     ];
+
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

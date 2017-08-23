@@ -20,18 +20,13 @@ class PagesController extends Controller
         return view('pages.province.list', compact('provinces'));
     }
 
-//    public function hotelsList()
-//    {
-//        $provinces = Province::paginate(9);
-//
-//        return view('pages.service.hotels.list', compact('provinces'));
-//    }
-
     public function hotelsList(Request $request)
     {
-        $hotels = Service::where('category_id','=',1);
+        $provinces = Province::where('name', '=', $request->name)->first();
 
-        return view('pages.service.hotels.list', compact('hotels'));
+        $hotels = Service::where([['category_id', '=', 1], ['province_id', '=', $provinces->id],])->get();
+
+        return view('pages.service.hotels.list', compact('hotels', 'provinces'));
     }
 
     public function hotels(Request $request)

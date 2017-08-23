@@ -18,4 +18,19 @@ class RequestedService extends Model
         'expected_price',
         'status',
     ];
+
+    function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

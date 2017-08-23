@@ -11,4 +11,9 @@ class ServiceGallery extends Model
         'service_id',
         'img_url',
     ];
+
+    function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

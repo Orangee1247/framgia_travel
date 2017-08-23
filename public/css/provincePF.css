@@ -174,7 +174,7 @@ body {
 }
 
 .overview {
-    margin-top: 50px;
+    margin-top: 60px;
     width: 100%;
     min-height: 200px;
     margin-bottom: 50px;
@@ -186,6 +186,7 @@ body {
     height: 70px;
     font-size: 27px;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .navigation ul li {
