@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Province;
 use App\Models\ProvinceGallery;
+use App\Models\Plan;
+use App\Models\PlanLocation;
+use App\Models\PlanDetail;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
