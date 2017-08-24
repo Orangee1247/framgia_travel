@@ -1,0 +1,48 @@
+#custom-search-input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #D9230F;
+}
+
+body {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.gallery h3{
+    color: black;
+}
+
+
+.search-query:focus + button {
+    z-index: 3;
+}
+
+.row {
+    width: 800px;
+    margin: auto;
+}

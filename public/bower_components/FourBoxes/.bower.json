@@ -1,0 +1,13 @@
+{
+  "name": "FourBoxes",
+  "homepage": "https://github.com/codrops/FourBoxes",
+  "_release": "f90ea18ca5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f90ea18ca5ecfe016b98c17fe695a7cedcb9fd24"
+  },
+  "_source": "https://github.com/codrops/FourBoxes.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/codrops/FourBoxes.git"
+}
