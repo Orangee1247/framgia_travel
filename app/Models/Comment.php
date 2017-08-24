@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Comment extends Model
 {
@@ -11,6 +12,7 @@ class Comment extends Model
         'user_id',
         'service_id',
         'content',
+        'title',
         'rate_point',
     ];
 
@@ -23,4 +25,10 @@ class Comment extends Model
     {
         return $this->belongsTo(Service::class);
     }
+
+    public function getCreatedAtAttribute($attr) {
+        return Carbon::parse($attr)->format('d/m/Y - h:ia'); //Change the format to whichever you desire
+    }
+
+
 }

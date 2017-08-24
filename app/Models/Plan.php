@@ -11,7 +11,8 @@ class Plan extends Model
         'user_id',
         'title',
         'description',
-        'time',
+        'time_from',
+        'time_to'
     ];
 
     function user()

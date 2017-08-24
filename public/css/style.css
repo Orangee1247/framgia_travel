@@ -154,7 +154,7 @@ header {
 /*-- about --*/
 .w3-agileits-about-section {
     padding: 70px 0;
-    background: #ffffff;
+    background: whitesmoke;
 }
 
 .wthree-about-section-grid img {
@@ -200,7 +200,7 @@ header {
 /*-- specials --*/
 .agileits-w3layouts-specials {
     padding: 80px 0;
-    background: #fff;
+    background: whitesmoke;
 }
 
 .agileits-w3layouts-specials h3 {
@@ -436,7 +436,7 @@ p.sp-para {
 }
 
 .team {
-    background: #fff;
+    background: whitesmoke;
     padding: 0 0 90px 0;
 }
 
@@ -860,7 +860,7 @@ img.readmore {
 
 .news-section {
     padding: 70px 0;
-    background: #ffffff;
+    background: whitesmoke;
 }
 
 .agileits-news-section-head h3 {
@@ -2315,4 +2315,12 @@ footer {
 
 .dropdown-item {
     font-size: large;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    overflow: hidden;
 }
