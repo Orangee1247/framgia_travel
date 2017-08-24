@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Province;
-use App\Models\ProvinceGallery;
 use App\Models\Plan;
 use App\Models\PlanLocation;
-use App\Models\PlanDetail;
+use App\Models\Province;
+use App\Models\ProvinceGallery;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +54,7 @@ class PagesController extends Controller
     {
         $provinces = Province::all();
 
-        return view('pages.action.request.request', compact('provinces'));
+        return view('pages.action.request.add', compact('provinces'));
     }
 
     public function requestPost(Request $request)
@@ -72,6 +71,38 @@ class PagesController extends Controller
             $pl->save();
         }
 
-        return redirect(route('requestGet'));
+        return redirect(route('user.profile', Auth::user()->id));
+    }
+
+    public function requestEditGet(Request $request)
+    {
+        $plann = Plan::with('plan_location')->find($request->id);
+        $choices = $plann->plan_location;
+        $provinces = Province::all();
+//        $choices = DB::table('plans')->join('plan_locations', 'plans.id', '=', 'plan_locations.plan_id')
+//            ->join('provinces', 'provinces.id', '=', 'plan_locations.province_id')->where('plans.id', '=', $request->id)
+//            ->get();
+
+        return view('pages.action.request.edit', compact('plann', 'provinces', 'choices'));
+    }
+
+    public function requestEditPost(Request $request)
+    {
+        $plann = Plan::find($request->id);
+        $plann->update($request->all());
+        $plann->save();
+        $choices = is_array($request->proChoice) ? $request->proChoice : [];
+        $deletes = PlanLocation::where('plan_id', '=', $request->id)->get();
+        foreach ($deletes as $delete) {
+            $delete->delete();
+        }
+        foreach ($choices as $choice) {
+            $pl = new PlanLocation();
+            $pl->province_id = $choice;
+            $pl->plan_id = $request->id;
+            $pl->save();
+        }
+
+        return redirect(route('user.profile', Auth::user()->id));
     }
 }

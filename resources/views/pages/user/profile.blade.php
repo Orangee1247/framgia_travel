@@ -90,21 +90,28 @@
                             <div class="active tab-pane" id="plans">
                                 <div class="wrap">
                                     @foreach($plans as $plan)
-                                        <div class="tile">
-                                            <img src='https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80'/>
-                                            <div class="text">
-                                                <h1>{{ $plan->title }}</h1>
-                                                @foreach($locations as $location)
-                                                    <h2 class="animate-text">{{ $location->province_id }}</h2>
-                                                @endforeach
-                                                <p class="animate-text">{{ $plan->description }}</p>
-                                                <div class="dots">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
+                                        @php
+                                            $img = '';
+                                            $location = $plan->plan_location->random(1)->first();
+                                            if ($location) {
+                                                $img = $location->province->img_url;
+                                            }
+                                        @endphp
+                                        <a href="{{ route('requestEditGet', $plan->id) }}">
+                                            <div class="tile">
+                                                <img src='{{ $img }}'/>
+                                                <div class="text">
+                                                    <h2>{{ $plan->title }}</h2>
+                                                    <h5 class="animate-text">{{ $plan->time }}</h5>
+                                                    @foreach($plan->plan_location as $planLocaltion)
+                                                        <h5 class="animate-text">
+                                                            <i class="fa fa-hand-o-right"></i>
+                                                            {{ $planLocaltion->province->name }}
+                                                        </h5>
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     @endforeach
                                 </div>
                             </div>
@@ -178,16 +185,6 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-                                            <symbol id="close" viewBox="0 0 18 18">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
-    S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
-    l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
-    c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
-    s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z"/>
-                                            </symbol>
-                                        </svg>
                                     </div>
                                     <!-- /.tab-pane -->
                                 </div>
@@ -258,9 +255,8 @@
                                     <div class="form-group">
                                         <label for="self_describe" class="col-sm-2 control-label">Biography</label>
 
-                                        <div class="col-sm-10">
-    <textarea class="form-control"
-              name="self_describe">{{Auth::user()->self_describe}}</textarea>
+                                        <div class="col-sm-10"><textarea class="form-control" rows="3"
+                                                                         name="self_describe">{{Auth::user()->self_describe}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -298,6 +294,5 @@
     {{ HTML::script('bower_components/AdminLTE/dist/js/app.min.js') }}
     {{ HTML::script('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}
     {{ HTML::script('js/userPF.js', ['type' => 'text/javascript']) }}
-    {{ HTML::script('bower_components/ajax-form/ajax-form.js') }}
 @endsection
 

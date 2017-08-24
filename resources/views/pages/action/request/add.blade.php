@@ -19,7 +19,7 @@
             <span></span>
         </div>
         <div class="centeredDiv">
-            <h3>Tell us about <b><em>{{ Auth::user()->name }}</em></b> desired tour requirements</h3>
+            <h3>Tell us about your tour requirements</h3>
             <hr>
             <form action="{{ route('requestPost') }}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -38,25 +38,10 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group date">
-                            <label>Date</label> &nbsp;
-                            <i class="fa fa-calendar"></i>
-                            <input name="dateStart" type="text" class="form-control pull-right" id="datepicker">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="bootstrap-timepicker">
-                            <div class="form-group">
-                                <label>Time</label> &nbsp;
-                                <i class="fa fa-clock-o"></i>
-                                <div class="form-group">
-                                    <input name="time" type="text" class="form-control timepicker">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group date">
+                    <label>Date</label> &nbsp;
+                    <i class="fa fa-calendar"></i>
+                    <input name="time" type="text" class="form-control" id="datepicker">
                 </div>
                 <div class="form-group">
                     <label>Description</label> &nbsp;
@@ -95,9 +80,6 @@
                     $("#days").val(parseInt($("#days").val(), 10) - 1);
             });
             $(".select2").select2();
-            $(".timepicker").timepicker({
-                showInputs: false
-            });
             $('#datepicker').datepicker({
                 autoclose: true
             });

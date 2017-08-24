@@ -45,4 +45,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['IsAdmin', 'auth']], functi
 Route::group(['prefix' => '/action', 'middleware' => ['IsUser', 'auth']], function () {
     Route::get('/request', ['as' => 'requestGet', 'uses' => 'PagesController@requestGet']);
     Route::post('/request', ['as' => 'requestPost', 'uses' => 'PagesController@requestPost']);
+    Route::get('/request/{id}/edit', ['as' => 'requestEditGet', 'uses' => 'PagesController@requestEditGet']);
+    Route::post('/request/{id}/edit', ['as' => 'requestEditPost', 'uses' => 'PagesController@requestEditPost']);
 });
