@@ -14,6 +14,8 @@ class Comment extends Model
         'content',
         'title',
         'rate_point',
+        'updated_at',
+        'created_at',
     ];
 
     function user()

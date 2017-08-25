@@ -80,7 +80,6 @@
         <div class="container">
             <div class="gallery text-center" id="wthree-gallery">
                 <h3 class="agileits_head">{{ $provinces->name }} {{ $route_text }}</h3>
-
                 <span class="w3-line"></span>
                 <div class="row">
                     <form is="ajax-form" method="post" action="" id="search1">

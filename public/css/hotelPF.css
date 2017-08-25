@@ -364,25 +364,25 @@ body {
     margin-top: 6px;
 }
 
-.rating-block{
+.rating-block {
     width: 340px;
 }
 
-.text-right .caption{
+.text-right .caption {
     display: none !important;
 }
 
-.caption{
+.caption {
     margin-top: -6px !important;
     font-size: 73% !important;
     margin-left: 17px !important;
 }
 
-#rate-bd{
+#rate-bd {
     margin-left: 50px;
 }
 
-.bd-value{
+.bd-value {
     font-size: 15px;
     font-weight: bold;
 }

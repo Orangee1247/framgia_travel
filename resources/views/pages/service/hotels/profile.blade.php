@@ -67,13 +67,13 @@
             <span class="fa  fa-chevron-right"></span>
 
             <div class="box1">
-                    <a href={{ route($route_name, [$province, $type]) }}><h4>{{ $route_text }}</h4></a>
+                <a href={{ route($route_name, [$province, $type]) }}><h4>{{ $route_text }}</h4></a>
             </div>
 
             <span class="fa  fa-chevron-right"></span>
 
             <div class="box1">
-                    <a href={{ route($route_namePF, [$province, $type, $hotel->name]) }}><h4>{{ $hotel->name }}</h4></a>
+                <a href={{ route($route_namePF, [$province, $type, $hotel->name]) }}><h4>{{ $hotel->name }}</h4></a>
             </div>
         </div>
 
@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="text">
-                            {{ $hotel->phone }}
+                            {{$hotel->phone}}
                         </div>
                     </div>
 
@@ -142,7 +142,7 @@
                         </div>
 
                         <div class="text">
-                            {{ $hotel->expected_price }} $
+                            {{$hotel->expected_price}} $
                         </div>
                     </div>
 
@@ -153,7 +153,7 @@
                         </div>
 
                         <div class="text" id="about">
-                            {{ $hotel->description }}
+                            {{$hotel->description}}
                         </div>
                     </div>
 
@@ -193,7 +193,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="pull-right bd-value" style="margin-left:10px;">{{ $star5 }}</div>
                     </div>
                     <div class="pull-left">
@@ -307,7 +306,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
