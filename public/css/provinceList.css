@@ -33,10 +33,9 @@ body {
     color: black;
 }
 
-.gallery h3{
+.gallery h3 {
     color: black;
 }
-
 
 .search-query:focus + button {
     z-index: 3;
@@ -45,4 +44,17 @@ body {
 .row {
     width: 800px;
     margin: auto;
+}
+
+.agileinfo_gallery_grid {
+    box-shadow: 8px 9px 20px 2px #333;
+    border-radius: 6px;
+}
+
+.hovereffect {
+    border-radius: 6px;
+}
+
+.w3l_gallery_grids {
+    padding: 20px;
 }

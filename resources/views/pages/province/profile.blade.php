@@ -65,7 +65,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{route('hotels', $provinces->name)}}">
+                                        <a href="{{route('hotels', [$provinces->name, 1])}}">
                                             <span class="text">Places to stay</span>
                                             <span class="line -right"></span>
                                             <span class="line -top"></span>
@@ -75,7 +75,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{route('restaurants', $provinces->name)}}">
+                                        <a href="{{route('restaurants', [$provinces->name, 2])}}">
                                             <span class="text">Where to eat</span>
                                             <span class="line -right"></span>
                                             <span class="line -top"></span>
@@ -85,7 +85,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{route('activities', $provinces->name)}}">
+                                        <a href="{{route('activities', [$provinces->name, 3])}}">
                                             <span class="text">Things to do</span>
                                             <span class="line -right"></span>
                                             <span class="line -top"></span>

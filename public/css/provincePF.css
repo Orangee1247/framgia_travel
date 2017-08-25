@@ -1,3 +1,6 @@
+header .container{
+    overflow: visible;
+}
 
 .navigation a {
     cursor: pointer;
