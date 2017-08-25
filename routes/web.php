@@ -8,9 +8,19 @@ Auth::routes();
 Route::group(['prefix' => 'provinces'], function () {
     Route::get('/', ['as' => 'provinceList', 'uses' => 'PagesController@provinces']);
     Route::get('/{name}', ['as' => 'provincePF', 'uses' => 'PagesController@provincePF']);
-    Route::get('{name}/Hotels', ['as' => 'hotels', 'uses' => 'PagesController@hotelsList']);
-    Route::get('{name}/Restaurants', ['as' => 'restaurants', 'uses' => 'PagesController@restaurants']);
-    Route::get('{name}/Activities', ['as' => 'activities', 'uses' => 'PagesController@activities']);
+
+    Route::get('{name}{id}/Hotels', ['as' => 'hotels', 'uses' => 'PagesController@hotelsList']);
+    Route::get('{name}{id}/Hotels/{name1}', ['as' => 'hotelPF', 'uses' => 'PagesController@hotelPF']);
+
+    Route::get('{name}{id}/Restaurants', ['as' => 'restaurants', 'uses' => 'PagesController@hotelsList']);
+    Route::get('{name}{id}/Restaurants/{name1}', ['as' => 'restaurantPF', 'uses' => 'PagesController@hotelPF']);
+
+    Route::get('{name}{id}/Activities', ['as' => 'activities', 'uses' => 'PagesController@hotelsList']);
+    Route::get('{name}{id}/Activities/{name1}', ['as' => 'activityPF', 'uses' => 'PagesController@hotelPF']);
+
+    Route::post('{name}{id1}/Service/{name1}', ['as' => 'comment', 'uses' => 'PagesController@comment', 'middleware' => 'auth']);
+    Route::post('{name}{id1}/Service/{name1}/edit/{id}', ['as' => 'comment.edit', 'uses' => 'PagesController@editComment']);
+    Route::get('{name}{id1}/Service/{name1}/delete/{id}', ['as' => 'comment.delete', 'uses' => 'PagesController@deleteComment']);
 });
 
 Route::group(['prefix' => 'services'], function () {
@@ -47,4 +57,5 @@ Route::group(['prefix' => '/action', 'middleware' => ['IsUser', 'auth']], functi
     Route::post('/request', ['as' => 'requestPost', 'uses' => 'PagesController@requestPost']);
     Route::get('/request/{id}/edit', ['as' => 'requestEditGet', 'uses' => 'PagesController@requestEditGet']);
     Route::post('/request/{id}/edit', ['as' => 'requestEditPost', 'uses' => 'PagesController@requestEditPost']);
+    Route::get('/request/{id}/delete', ['as' => 'requestDelete', 'uses' => 'PagesController@requestDelete']);
 });

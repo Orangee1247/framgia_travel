@@ -10,6 +10,7 @@
     margin-left: auto;
     width: 800px;
     opacity: 1;
+    border: solid 5px #34bf49;
 }
 
 .spinner {
@@ -59,4 +60,44 @@
     background-color: #34bf49;
     font-size: 130%;
     font-weight: 500;
+}
+
+#delete {
+    font-weight: bold;
+}
+
+#delete:hover {
+    color: red;
+    font-size: larger;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+#detail {
+    border: solid 1px #aaaaaa;
+    border-radius: 5px;
+    width: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+.page-wrap {
+    margin-bottom: 50px;
+}
+
+#add {
+    background-color: #34bf49;
+    height: 35px;
+    width: 35px;
+    border-radius: 10px;
+    outline: none;
+}
+
+#minus {
+    background-color: #fa2b1b;
+    height: 35px;
+    width: 35px;
+    border-radius: 10px;
+    outline: none;
 }
