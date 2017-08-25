@@ -9,6 +9,7 @@ Route::group(['prefix' => 'provinces'], function () {
     Route::get('/', ['as' => 'provinceList', 'uses' => 'PagesController@provinces']);
     Route::get('/{name}', ['as' => 'provincePF', 'uses' => 'PagesController@provincePF']);
     Route::get('{name}/Hotels', ['as' => 'hotels', 'uses' => 'PagesController@hotelsList']);
+    Route::get('{name}/Hotels/{name1}', ['as' => 'hotelPF', 'uses' => 'PagesController@hotelPF']);
     Route::get('{name}/Restaurants', ['as' => 'restaurants', 'uses' => 'PagesController@restaurants']);
     Route::get('{name}/Activities', ['as' => 'activities', 'uses' => 'PagesController@activities']);
 });
@@ -47,4 +48,5 @@ Route::group(['prefix' => '/action', 'middleware' => ['IsUser', 'auth']], functi
     Route::post('/request', ['as' => 'requestPost', 'uses' => 'PagesController@requestPost']);
     Route::get('/request/{id}/edit', ['as' => 'requestEditGet', 'uses' => 'PagesController@requestEditGet']);
     Route::post('/request/{id}/edit', ['as' => 'requestEditPost', 'uses' => 'PagesController@requestEditPost']);
+    Route::get('/request/{id}/delete', ['as' => 'requestDelete', 'uses' => 'PagesController@requestDelete']);
 });

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Plan;
 use App\Models\PlanLocation;
 use App\Models\Province;
 use App\Models\ProvinceGallery;
 use App\Models\Service;
+use App\Models\ServiceGallery;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +26,9 @@ class PagesController extends Controller
     {
         $provinces = Province::where('name', '=', $request->name)->first();
 
-        $hotels = Service::where([['category_id', '=', 1], ['province_id', '=', $provinces->id],])->get();
+        $hotels = Service::where('category_id', '=', 1)
+            ->where('province_id', '=', $provinces->id)
+            ->get();
 
         return view('pages.service.hotels.list', compact('hotels', 'provinces'));
     }
@@ -34,6 +39,22 @@ class PagesController extends Controller
         $provinces = Province::where('name', 'like', "%$key%")->take(30)->paginate(5);
 
         return view('pages.service.hotels.search', compact('provinces', 'key'));
+    }
+
+    public function hotelPF(Request $request)
+    {
+        $hotel = Service::where('name', '=', $request->name1)->first();
+
+        $images = ServiceGallery::where('service_id', '=', $hotel->id)->get();
+
+        $comments = Comment::where('service_id', '=', $hotel->id)->get();
+
+        $users = User::join('comments', 'users.id', '=', 'comments.user_id')
+            ->where('comments.service_id', '=', $hotel->id)->get();
+
+        $province = $request->name;
+
+        return view('pages.service.hotels.profile', compact('hotel', 'images', 'province', 'comments', 'users'));
     }
 
     public function provincePF(Request $request)
@@ -105,4 +126,13 @@ class PagesController extends Controller
 
         return redirect(route('user.profile', Auth::user()->id));
     }
+
+    public function requestDelete(Request $request)
+    {
+        $delete = Plan::find($request->id);
+        $delete->delete();
+
+        return redirect(route('user.profile', Auth::user()->id));
+    }
 }
+

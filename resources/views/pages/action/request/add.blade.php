@@ -38,10 +38,17 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group date">
-                    <label>Date</label> &nbsp;
-                    <i class="fa fa-calendar"></i>
-                    <input name="time" type="text" class="form-control" id="datepicker">
+                <div class="row">
+                    <div class="form-group col-md-6 date">
+                        <label>From</label> &nbsp;
+                        <i class="fa fa-calendar"></i>
+                        <input name="time_from" type="text" class="form-control" id="datepicker">
+                    </div>
+                    <div class="form-group col-md-6 date">
+                        <label>To</label> &nbsp;
+                        <i class="fa fa-calendar"></i>
+                        <input name="time_to" type="text" class="form-control" id="datepicker2">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Description</label> &nbsp;
@@ -81,6 +88,9 @@
             });
             $(".select2").select2();
             $('#datepicker').datepicker({
+                autoclose: true
+            });
+            $('#datepicker2').datepicker({
                 autoclose: true
             });
         })(jQuery);

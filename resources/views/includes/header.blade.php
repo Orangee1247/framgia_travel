@@ -26,24 +26,12 @@
                     <li><a href="{{ route('hotelList') }}">Hotels</a></li>
                     <li><a class="scroll" href="#agileits-specials">Restaurants</a></li>
                     <li><a class="scroll" href="#wthree-gallery">Activities</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Action <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Tour Offer</a></li>
-                            <li><a class="dropdown-item" href="{{ route('requestGet') }}">Tour Request</a></li>
-                        </ul>
-                    </li>
-                    <!-- Authentication Links -->
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
     </div>
 
     <div class="nav-mini-wrapper">
-        <!-- Authentication Links -->
-        {{--<ul class="nav navbar-nav">--}}
         <ul class="nav-login">
             @if (Auth::guest())
                 <li id="register">
@@ -51,7 +39,6 @@
                         <img src="{{ asset('/images/register.png') }}"/>
                     </a>
                 </li>
-
                 <li id="login">
                     <a href="{{ route('login') }}">
                         <img src="{{ asset('/images/login.png') }}">
@@ -62,13 +49,13 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
-
                     <ul class="dropdown-menu" role="menu">
                         @if(Auth::user() -> level == 1)
                             <li><a href="{{ route('admin') }}"><strong>ADMIN</strong></a></li>
                         @endif
                         <li><a href="{{ route('user.profile', [Auth::user()->id]) }}">{{ trans('label.profile') }}</a>
                         </li>
+                        <li><a class="dropdown-item" href="{{ route('requestGet') }}">Add Plan</a></li>
                         <li>
                             <a href="javascript:void(0)" id="logout-1">
                                 {{trans('label.logout')}}
