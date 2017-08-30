@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="text">
-                            {{$hotel->phone}}
+                            {{ $hotel->phone }}
                         </div>
                     </div>
 
@@ -142,7 +142,7 @@
                         </div>
 
                         <div class="text">
-                            {{$hotel->expected_price}} $
+                            {{ $hotel->expected_price }} $
                         </div>
                     </div>
 
@@ -153,7 +153,7 @@
                         </div>
 
                         <div class="text" id="about">
-                            {{$hotel->description}}
+                            {{ $hotel->description }}
                         </div>
                     </div>
 
@@ -306,6 +306,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
