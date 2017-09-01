@@ -164,7 +164,7 @@ class PagesController extends Controller
 
         return redirect(route('user.profile', Auth::user()->id));
     }
-
+    
     public function comment(Request $request)
     {
         $type = $request->id1;
